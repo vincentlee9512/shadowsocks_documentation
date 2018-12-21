@@ -1,0 +1,48 @@
+Install Meilin system in asus router (AC68U in my example)
+
+reference: https://www.youtube.com/watch?v=IzAB-e3mXug&index=17&list=WL&t=156s 
+
+File needed:  
+  1. Asus Restoration (救援模式):
+    https://www.asus.com.cn/Networking/RTAC68U/HelpDesk_Download/
+    https://www.asus.com/Networking/RTAC68U/HelpDesk_Download/
+
+  2. The Meilin system:
+    http://firmware.koolshare.cn/Koolshare_Merlin_Legacy_380/ASUS/
+    
+  3. The ss application:
+    https://github.com/hq450/fancyss_history_package/tree/master/fancyss_arm
+
+
+Steps:
+  1. Get into Restoration:
+      1. Hold the reset button on the router, plug in, and turn on the router.
+      2. Release the reset button until the power light is slowly flash.
+      3. Plug-in(LAN_on_router, PC, cable)
+      4. set PC IP_addr in wired Ethernet to 192.168.1.123 255.255.255.0
+      5. Run the Restoration file.
+
+  2. install Meilin
+      1. In Restoration execution, input Meilin system.
+      2. Restart router
+      3. browser --> router.asus.com
+      4. Set your admin setting.
+      5. (optional)系统管理 --> 恢复 --> 原厂设置 --> 重启
+      6. 系统管理 --> 系统设置 --> 
+            Format JFFS partition at next boot --> yes
+            Enable JFFS custom scripts and configs --> yes
+            Apply
+            reboot
+
+      7. 软件中心 --> 更新梅林固件
+
+  3. install ss application
+      1. enter 软件中心
+      2. 离线安装
+      3. 上传 shadowsocks 离线安装包
+
+  4. shadowsocks setting 
+      1. add node and fill in your ss-info
+      2. start shadowsocks:
+          - switch on
+          - apply a selected node
