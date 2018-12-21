@@ -1,0 +1,33 @@
+Building A Shadowsocks server 
+
+reference: https://www.youtube.com/watch?v=xrbviAfagrU&t=746s
+
+
+Steps:
+  1. create a vm instance in web server website
+    - allow https traffic
+      $ sudo iptables -A INPUT -p tcp -m multiport --dports 80,443 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+      $ sudo iptables -A OUTPUT -p tcp -m multiport --dports 80,443 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+
+  2. install ss 
+
+    1.get root access:
+      $ sudo -i
+
+    2.install bbr.sh:
+    $ wget -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/YankeeBBR/master/bbr.sh && bash bbr.sh install
+
+    --->blueprinted window -> tab key to choose No
+
+    restart->Y
+
+    3. :
+      $ bash bbr.sh start
+
+      $ wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh && chmod +x shadowsocksR.sh
+
+    4. start ss:
+    ./shadowsocksR.sh
+
+    - decide pw & port
+    - set the rest to default (Encrypt: aes-256-cfb)
